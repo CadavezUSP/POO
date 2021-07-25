@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class Contas {
@@ -180,8 +179,8 @@ public class Contas {
     }
 
     public boolean ComparaRespostas(double resposta){
-        String respostaEsperada = String.format("%.2f", respostaAtual);
-        String respostaInserida = String.format("%.2f", resposta);
+        String respostaEsperada = String.format("%.1f", respostaAtual);
+        String respostaInserida = String.format("%.1f", resposta);
         return respostaEsperada.equals(respostaInserida);
     }
 
