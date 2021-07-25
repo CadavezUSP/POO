@@ -40,7 +40,7 @@ public class GameGUI extends JFrame implements ActionListener {
         JPanel jp2 = new JPanel(new FlowLayout());
         jp3 = new JPanel(new FlowLayout());
         JButton jogar = new JButton("Jogar");
-        JButton instrucoes = new JButton("InstruÁıes");
+        JButton instrucoes = new JButton("Instru√ß√µes");
         this.integrantes = new JLabel("Integrantes: V, C, B, D");
             
         
@@ -61,13 +61,12 @@ public class GameGUI extends JFrame implements ActionListener {
             if(jTextField.getName().equals(nome)) return jTextField;
         }
         return null;
-        //Se n„o encontrar o textfield retorna null
+        //Se n√£o encontrar o textfield retorna null
     }
     
     public void jTextField(String nome,int x, int y, int w, int h){
         textfield = new JTextField();
         textfield.setBounds(x, y, w, h);
-       // textfield.setPreferredSize( new Dimension( 200, 24 ) );
         textfield.setName(nome);
         this.add(textfield);
         tfLista.add(textfield);
@@ -171,11 +170,11 @@ public class GameGUI extends JFrame implements ActionListener {
             
         }else if ("instrucoes".equals(e.getActionCommand())) {
             
-            JFrame janelainst = new JFrame("InstruÁıes");
+            JFrame janelainst = new JFrame("Instru√ß√µes");
             JPanel painel = (JPanel) janelainst.getContentPane();
-            JLabel l1 = new JLabel("O jogo consiste em problemas matem·ticos para crianÁas."); l1.setHorizontalAlignment(JLabel.CENTER); l1.setVerticalAlignment(JLabel.CENTER);
-            JLabel l2 = new JLabel("S„o elaboradas questıes baseadas nas operaÁıes b·sicas com nÌvel de"); l2.setHorizontalAlignment(JLabel.CENTER); l2.setVerticalAlignment(JLabel.CENTER);
-            JLabel l3 = new JLabel("dificuldade escolhido pelo usu·rio. O objetivo È vencer os monstros a partir"); l3.setHorizontalAlignment(JLabel.CENTER); l3.setVerticalAlignment(JLabel.CENTER);
+            JLabel l1 = new JLabel("O jogo consiste em problemas matem√°ticos para crian√ßas."); l1.setHorizontalAlignment(JLabel.CENTER); l1.setVerticalAlignment(JLabel.CENTER);
+            JLabel l2 = new JLabel("S√£o elaboradas quest√µes baseadas nas opera√ß√µes b√°sicas com n√≠vel de"); l2.setHorizontalAlignment(JLabel.CENTER); l2.setVerticalAlignment(JLabel.CENTER);
+            JLabel l3 = new JLabel("dificuldade escolhido pelo usu√°rio. O objetivo √© vencer os monstros a partir"); l3.setHorizontalAlignment(JLabel.CENTER); l3.setVerticalAlignment(JLabel.CENTER);
             JLabel l4 = new JLabel("de respostas corretas para as perguntas que eles fazem."); l4.setHorizontalAlignment(JLabel.CENTER); l4.setVerticalAlignment(JLabel.CENTER);
             
             painel.setLayout(new FlowLayout());
@@ -215,9 +214,9 @@ public class GameGUI extends JFrame implements ActionListener {
             if(button.getText().equals("confirma")){
                 try{
                     String resposta  = buscarJTextField("Resposta").getText();
-                    System.out.println("Usu·rio: "+ resposta);
+                    System.out.println("Usu√°rio: "+ resposta);
                 } catch(Exception ex){
-                    System.out.println("N„o encontrou a resposta");
+                    System.out.println("N√£o encontrou a resposta");
                     ex.printStackTrace();
                 }
             }
