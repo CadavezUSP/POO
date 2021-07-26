@@ -14,8 +14,8 @@ public abstract class Enemy {
         int currentLife = getLife();
         setLife(currentLife-damage);
     }
-    public int calculateDamage(int pontos){
-        return pontos/20;
+    public int calculateDamage(boolean[] acertos){
+        return acertos.length*10;
     }
     public double[] getRespostas() {
         double[] respostas = new double[maxAttack];

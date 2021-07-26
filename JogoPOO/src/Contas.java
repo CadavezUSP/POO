@@ -65,15 +65,15 @@ public class Contas {
 
     private void criaConta(int arg1, int arg2, String operator){
         if (arg1 <0 && arg2 <0){
-            conta = conta + "[" + "(" + arg1 + ")" + " " + operator + " " + "(" + arg2 + ")" + "] ";
+            conta = conta + "[" + "(" + arg1 + ")" + " " + operator + " " + "(" + arg2 + ")" + "]     ";
         }
         else if(arg1<0){
-            conta = conta + "[" + "(" + arg1 + ")" + " " + operator + " " +  arg2  + "] ";
+            conta = conta + "[" + "(" + arg1 + ")" + " " + operator + " " +  arg2  + "]     ";
         }
         else if (arg2 <0){
-            conta = conta + "[" + arg1 + " " + operator + " " + "(" + arg2 + ")" + "] ";
+            conta = conta + "[" + arg1 + " " + operator + " " + "(" + arg2 + ")" + "]     ";
         }
-        else conta = conta + "(" + arg1 + " " + operator + " " + arg2 + ") ";
+        else conta = conta + "(" + arg1 + " " + operator + " " + arg2 + ")     ";
     }
 
     private double calculaResposta(double[] respostas, String[] operador, int maxArguments){
@@ -107,7 +107,8 @@ public class Contas {
                 operator = generateOperator(true);
                 if (operator.equals("×") || operator.equals("÷")){
                     arg1 = arg1 %10;
-                    arg2 = arg2 %10;
+                    arg2 = (arg2 %10) +1;
+
                 }
                 respostaAtual = executarConta(arg1, arg2, operator);
                 criaConta(arg1, arg2, operator);
@@ -120,15 +121,16 @@ public class Contas {
                     operator = generateOperator(false);
                     if (operator.equals("×") || operator.equals("÷")){
                         arg1 = arg1 %maxValueMultDiv;
-                        arg2 = arg2 %maxValueMultDiv;
+                        arg2 = (arg2 %maxValueMultDiv) + 1;
                     }
                     criaConta(arg1, arg2, operator);
                     respostas[i] = executarConta(arg1, arg2, operator);
                     if (i != maxArgumentsMedio-1) {
                         operadores[i] = generateOperator(false);
-                        conta = conta + operadores[i] + " ";
+                        conta = conta + operadores[i] + "     ";
                     }
                 }
+                conta = conta + "=";
                 break;
             case 3:
                 for (int i =0; i<maxArgumentsMedio; i++){
@@ -137,14 +139,14 @@ public class Contas {
                     operator = generateOperator(true);
                     if (operator.equals("×") || operator.equals("÷")){
                         arg1 = arg1 %maxValueMultDiv;
-                        arg2 = arg2 %maxValueMultDiv;
+                        arg2 = (arg2 %maxValueMultDiv) + 1;
                     }
                     criaConta(arg1, arg2, operator);
                     respostas[i] = executarConta(arg1, arg2, operator);
                     podeMultDiv = !(respostas[i] > 15);
                     if (i != maxArgumentsMedio-1) {
                         operadores[i] = generateOperator(podeMultDiv);
-                        conta = conta + operadores[i] + " ";
+                        conta = conta + operadores[i] + "      ";
                     }
                 }
                 conta = conta + "=";
@@ -157,14 +159,14 @@ public class Contas {
                     operator = generateOperator(true);
                     if (operator.equals("×") || operator.equals("÷")){
                         arg1 = arg1 %maxValueMultDiv;
-                        arg2 = arg2 %maxValueMultDiv;
+                        arg2 = (arg2 %maxValueMultDiv)+ 1;
                     }
                     criaConta(arg1, arg2, operator);
                     respostas[i] = executarConta(arg1, arg2, operator);
                     podeMultDiv = ((respostas[i] < 20) && (respostas[i] >-20));
                     if (i != maxArgumentsHard-1) {
                         operadores[i] = generateOperator(podeMultDiv);
-                        conta = conta + operadores[i] + " ";
+                        conta = conta + operadores[i] + "      ";
                     }
                 }
                 conta = conta + " =";

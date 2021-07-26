@@ -1,11 +1,11 @@
-public class Dragon extends Enemy{
-
-    public Dragon (){
+public class God extends Enemy{
+    public God (){
         for (int i = 0; i < attack.length; i++) {
             attack[i] = new Contas();
         }
         setLife(300);
     }
+
     @Override
     public String[] getAttack() {
         String[] ataques = new String[maxAttack];
@@ -14,6 +14,4 @@ public class Dragon extends Enemy{
         ataques[2] = attack[2].getConta(3);
         return ataques;
     }
-
-
 }
