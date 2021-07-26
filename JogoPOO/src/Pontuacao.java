@@ -32,14 +32,14 @@ public class Pontuacao {
         timer.schedule(new decreaseBonus(), 0, (periodo* 1000L));
     }
 
-    public void marcarPontoRodada (){
+    public void marcarPontoRodada (boolean[] acertos){
         pontosRodada = nivel*combo*100 + timeBonus;
         pontos += pontosRodada;
         timeBonus = 100;
         timer.cancel();
     }
 
-    public void increaseCombo() {
+    private void increaseCombo() {
         combo++;
     }
 
@@ -59,8 +59,21 @@ public class Pontuacao {
         return timeBonus;
     }
 
-    public void breakCombo (){
+    private void breakCombo (){
         combo =1;
+    }
+
+    public void correctCombo(boolean[] acertos){
+        int counter =0;
+        for (boolean acerto : acertos) {
+            if (acerto) counter++;
+        }
+        if (counter==acertos.length){
+            increaseCombo();
+        }
+        else {
+            breakCombo();
+        }
     }
 
     @Override

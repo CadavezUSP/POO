@@ -2,6 +2,9 @@ public class Slime extends Enemy{
 
     public Slime(){
         setLife(150);
+        for (int i = 0; i < attack.length; i++) {
+            attack[i] = new Contas();
+        }
     }
     @Override
     public String[] getAttack() {
@@ -11,5 +14,4 @@ public class Slime extends Enemy{
         ataques[2] = attack[2].getConta(1);
         return ataques;
     }
-
 }

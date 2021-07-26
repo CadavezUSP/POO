@@ -1,6 +1,9 @@
 public class Dragon extends Enemy{
 
     public Dragon (){
+        for (int i = 0; i < attack.length; i++) {
+            attack[i] = new Contas();
+        }
         setLife(300);
     }
     @Override

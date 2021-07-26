@@ -1,5 +1,8 @@
 public class Demon extends Enemy{
     public Demon (){
+        for (int i = 0; i < attack.length; i++) {
+            attack[i] = new Contas();
+        }
         setLife(500);
     }
     @Override

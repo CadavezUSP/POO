@@ -24,6 +24,14 @@ public abstract class Enemy {
         }
         return respostas;
     }
+
+    public boolean[] comparaRespostas(double[] respostas){
+        boolean[] respostasCertas = new boolean[maxAttack];
+        for (int i=0;i<maxAttack;i++){
+           respostasCertas[i] = attack[i].ComparaRespostas(respostas[i]);
+        }
+        return respostasCertas;
+    }
     public boolean isAlive(){
         return life <=0;
     }
