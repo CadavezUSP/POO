@@ -3,7 +3,7 @@ public class God extends Enemy{
         for (int i = 0; i < attack.length; i++) {
             attack[i] = new Contas();
         }
-        setLife(300);
+        setLife(800);
     }
 
     @Override

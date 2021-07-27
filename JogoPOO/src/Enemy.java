@@ -11,8 +11,7 @@ public abstract class Enemy {
         return life;
     }
     public void apllyDamage(int damage){
-        int currentLife = getLife();
-        setLife(currentLife-damage);
+        setLife(life-damage);
     }
     public int calculateDamage(boolean[] acertos){
         return acertos.length*10;
@@ -33,6 +32,7 @@ public abstract class Enemy {
         return respostasCertas;
     }
     public boolean isAlive(){
-        return life <=0;
+        return life >=0;
     }
+
 }

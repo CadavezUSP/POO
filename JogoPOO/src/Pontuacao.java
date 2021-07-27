@@ -13,6 +13,7 @@ public class Pontuacao {
         public void run() {
             if (timeBonus >-100) {
                 timeBonus -= nivel*10;
+                System.out.println(timeBonus);
             }
             else {
                 timer.cancel();
@@ -26,16 +27,20 @@ public class Pontuacao {
     }
 
     public void startRound(){
-        int periodo = nivel*5;
-        System.out.println(periodo);
+        int periodo = nivel*3;
         timer = new Timer();
         timer.schedule(new decreaseBonus(), 0, (periodo* 1000L));
     }
 
     public void marcarPontoRodada (boolean[] acertos){
-        pontosRodada = nivel*combo*100 + timeBonus;
+        int counter=0;
+        for (boolean acerto : acertos) {
+            System.out.println(acerto);
+            if (acerto) counter++;
+        }
+        pontosRodada = counter*nivel*combo* + timeBonus;
         pontos += pontosRodada;
-        timeBonus = 100;
+        timeBonus = 100*nivel;
         timer.cancel();
     }
 
@@ -74,6 +79,10 @@ public class Pontuacao {
         else {
             breakCombo();
         }
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
     }
 
     @Override
